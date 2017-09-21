@@ -1,0 +1,43 @@
+  become_user: root
+  shell: echo 'export PATH="export RBENV_ROOT=/usr/local/rbenv"' >> /etc/profile
+ 
+- name: add /etc/profile
+  become_user: root
+  shell: echo 'export PATH="export PATH="${RBENV_ROOT}/bin:${PATH}""' >> /etc/profile
+ 
+- name: add /etc/profile
+  become_user: root
+  shell: echo 'eval "$(rbenv init -)"' >> /etc/profile
+ 
+- name: add /etc/profile
+  become_user: root
+  shell: source /etc/profile
+
+- name: rbenv clone
+  git:
+    repo: "{{ RVENV_GIT }}"
+    dest: /usr/local
+
+- name: change directory group 
+  file: 
+    path: /usr/local/rbenv 
+    state: directory 
+    owner: redmine 
+    group: redmine 
+
+- name: ruby-build clone
+  git:
+    repo: "{{ RUBY_BUILD_GIT }}"
+    dest: /usr/local/rbenv/plugins/ruby-build
+
+- name: rbenv install -v 2.4.1
+  become_user: root
+  shell: /usr/local/rbenv/bin/rbenv install -v 2.4.1
+ 
+- name: rbenv rehash
+  become_user: root
+  shell: /usr/local/rbenv/bin/rbenv rehash
+ 
+- name: rbenv global 2.4.1
+  become_user: root
+  shell: /usr/local/rbenv/bin/rbenv global 2.4.1

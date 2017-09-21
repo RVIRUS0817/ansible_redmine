@@ -1,0 +1,15 @@
+- name: install bundler
+  become_user: root
+  shell: /usr/local/rbenv/shims/gem install bundler
+ 
+- name: install nokogiri
+  become_user: root
+  shell: /usr/local/rbenv/shims/gem install nokogiri -- --use-system-libraries
+ 
+- name: install rails
+  become_user: root
+  shell: /usr/local/rbenv/shims/gem install rails --version="4.2.0"
+
+- name: rehash
+  become_user: root
+  shell: /usr/local/rbenv/bin/rbenv rehash

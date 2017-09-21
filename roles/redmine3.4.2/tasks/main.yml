@@ -1,0 +1,34 @@
+- name: Download redmine3.4.2
+  get_url:
+    url: "{{ RUBY_BUILD_GIT }}"
+    dest: /usr/share/h2o
+
+- name: link redmine
+  file:
+    src: '/usr/share/h2o/redmine3.4.2'
+    dest: '/usr/share/h2o/redmine'
+    owner: redmine
+    group: redmine
+    state: link
+
+- name: copy redmine file
+  copy:
+    src: "{{ item.src }}"
+    dest: "/usr/share/h2o/redmine"
+    backup: no
+    owner: redmine
+    group: redmine
+  with_items:
+     - { src: roles/redmine-3.4.2/files/redmine3.4.2, dest: . }
+
+- name: gem redmine install
+  become_user: redmine
+  shell: /usr/local/rbenv/shims/bundle install --without development test --path vendor/bundle /usr/share/h2o/redmine
+
+- name: make secret token
+  become_user: redmine
+  shell: /usr/local/rbenv/shims/bundle exec rake generate_secret_token /usr/share/h2o/redmine
+
+- name: make db migrate
+  become_user: redmine
+  shell: /usr/local/rbenv/shims/bundle exec rake db:migrate RAILS_ENV=production /usr/share/h2o/redmine

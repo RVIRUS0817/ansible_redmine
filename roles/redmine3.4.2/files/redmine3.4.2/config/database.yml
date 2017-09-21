@@ -1,0 +1,8 @@
+production:
+  adapter: mysql2
+  database: redmine
+  host: localhost
+  username: user_redmine
+  password: "adachinpo"
+  encoding: utf8
+

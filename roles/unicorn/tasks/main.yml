@@ -1,0 +1,14 @@
+- name: copy unicorn init
+  copy:
+    src: "roles/init/files/{{ item.src }}"
+    dest: "/etc/h2o/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0755
+  with_items:
+    - { src: unicorn }
+
+- name: start unicorn 
+  sudo: True
+    service: name=unicorn enabled=yes state=started

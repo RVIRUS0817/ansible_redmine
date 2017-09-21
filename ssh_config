@@ -1,0 +1,7 @@
+Host redmine-web01
+  User ec2-user
+  HostName xxxxxxxxx
+  IdentityFile ~/.ssh/conf.d/xxxxxx
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+

@@ -1,0 +1,9 @@
+#rbenv
+RVENV_GIT: "git://github.com/sstephenson/rbenv.git"
+
+#ruby-build
+RUBY_BUILD_GIT: "git://github.com/sstephenson/ruby-build.git"
+
+#redmine3.4.2
+REDMINE3.4.2_DOWNLOAD_URL: "http://www.redmine.org/releases/redmine-3.4.2.zip"
+

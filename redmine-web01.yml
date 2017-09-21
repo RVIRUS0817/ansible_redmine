@@ -1,0 +1,10 @@
+- hosts: redmine-web01
+  become: yes
+  roles:
+    - common
+    - ruby
+    - rails
+    - h2o
+    - mysql
+    - redmine3.4.2
+    - unicorn
