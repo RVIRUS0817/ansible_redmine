@@ -13,4 +13,14 @@ https://blog.adachin.me/wordpress/archives/6306
 ・H2O v2.2.2  
 ・mysql 5.5.57  
 
-※DB系は自動化してません
+※DB系は自動化してません  
+
+# dry-run  
+````
+$ ansible-playbook --private-key=~/.ssh/xxx -i hosts -u ec2-user redmine-web01.yml --ask-sudo-pass --check
+````
+
+# run  
+````
+$ ansible-playbook --private-key=~/.ssh/xxx -i hosts -u ec2-user redmine-web01.yml --ask-sudo-pass
+````
