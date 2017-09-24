@@ -13,4 +13,4 @@ https://blog.adachin.me/wordpress/archives/6306
 ・H2O v2.2.2  
 ・mysql 5.5.57  
 
-
+※DB系は自動化してません
