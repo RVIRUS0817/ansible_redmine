@@ -3,7 +3,6 @@
   with_items:
     - mysql-devel
     - mysql-server
-    - mysql-utilities
 
 - name: service start mysql
   service: name=mysqld state=started enabled=yes
