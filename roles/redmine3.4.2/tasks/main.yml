@@ -5,7 +5,7 @@
 
 - name: link redmine
   file:
-    src: '/usr/share/h2o/redmine3.4.2'
+    src: '/usr/share/h2o/redmine-3.4.2'
     dest: '/usr/share/h2o/redmine'
     owner: redmine
     group: redmine
@@ -13,13 +13,13 @@
 
 - name: copy redmine file
   copy:
-    src: "roles/redmine-3.4.2/files/{{ item.src }}"
-    dest: "/usr/share/h2o/redmine/{{ item.dest }}"
+    src: "roles/redmine3.4.2/files/{{ item.src }}/"
+    dest: "/usr/share/h2o/redmine-3.4.2/{{ item.dest }}"
     backup: no
     owner: redmine
     group: redmine
   with_items:
-     - { src: redmine3.4.2, dest: . }
+     - { src: redmine-3.4.2, dest: . }
 
 - name: gem redmine install
   become_user: redmine
