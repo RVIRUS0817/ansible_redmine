@@ -39,7 +39,6 @@
     mode: 644
   with_items:
     - { src: redmine.adachin.com.conf }
-  notify: restart h2o
 
 - name: copy h2o.conf
   copy:
@@ -51,3 +50,4 @@
     mode: 644
   with_items:
     - { src: h2o.conf }
+  notify: restart h2o
