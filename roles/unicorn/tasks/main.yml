@@ -1,7 +1,7 @@
 - name: copy unicorn init
   copy:
     src: "roles/init/files/{{ item.src }}"
-    dest: "/etc/h2o/"
+    dest: "/etc/init.d/"
     backup: no
     owner: root
     group: root
