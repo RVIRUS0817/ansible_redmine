@@ -34,7 +34,6 @@
     - readline 
     - readline-devel 
     - ruby-devel 
-    - nodejsglibc-headers 
     - libyaml-devel 
     - zlib 
     - zlib-devel
@@ -66,7 +65,7 @@
     state: present
 
 - name: change hostname
-  hostname: name={{ server_hostname }}
+  hostname: name={{ inventory_hostname }}
 
 - name: create user 
   user:
