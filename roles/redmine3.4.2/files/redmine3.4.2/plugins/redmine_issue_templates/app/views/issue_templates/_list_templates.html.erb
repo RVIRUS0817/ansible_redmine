@@ -1,7 +1,6 @@
 <table class="list template_list">
   <thead>
   <tr>
-    <th><%=h l(:issue_template_name) %></th>
     <th><%=h l(:issue_title) %></th>
     <th><%=h l(:issue_description) %></th>
     <th><%= l(:field_is_default) %></th>
@@ -12,9 +11,6 @@
       <tr class="<%= cycle('odd', 'even') %> template_data">
         <td>
           <%= template.title %>
-        </td>
-        <td>
-          <%= template.issue_title %>
         </td>
         <td>
           <div class="template_tooltip_wrapper">
@@ -38,9 +34,6 @@
           <%= template.title %>
         </td>
         <td>
-          <%= template.issue_title %>
-        </td>
-        <td>
           <div class="template_tooltip_wrapper">
             <a class="icon template_tooltip" href="#" title="<%= l(:label_preview) %>"></a>
             <div class="wiki template_tooltip_body">
@@ -62,13 +55,10 @@
           <%= template.title %>
         </td>
         <td>
-          <%= template.issue_title %>
-        </td>
-        <td>
           <div class="template_tooltip_wrapper">
             <a class="icon template_tooltip" href="#" title="<%= l(:label_preview) %>"></a>
             <div class="wiki template_tooltip_body">
-              <span class="title"><%= template.issue_title %></span>
+              <span class="title"><%= template.title %></span>
               <%= textilizable(template.description) %>
             </div>
           </div>

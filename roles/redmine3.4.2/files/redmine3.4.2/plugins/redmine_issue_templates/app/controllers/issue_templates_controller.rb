@@ -50,7 +50,7 @@ class IssueTemplatesController < ApplicationController
 
     if request.post?
       @issue_template.safe_attributes = template_params
-      @issue_template.checklist_json = checklists.to_json
+      #@issue_template.checklist_json = checklists.to_json
 
       save_and_flash(:notice_successful_create) && return
     end
@@ -62,7 +62,7 @@ class IssueTemplatesController < ApplicationController
     return unless request.patch? || request.put?
     @issue_template.safe_attributes = template_params
 
-    @issue_template.checklist_json = checklists.to_json
+    #@issue_template.checklist_json = checklists.to_json
 
     save_and_flash(:notice_successful_update)
   end
@@ -213,7 +213,7 @@ class IssueTemplatesController < ApplicationController
 
   def default_templates
     [@global_templates, @inherit_templates, @issue_templates].map do |templates|
-      templates.try(:is_default).try(:first)
+     # templates.try(:is_default).try(:first)
     end
   end
 
@@ -224,7 +224,7 @@ class IssueTemplatesController < ApplicationController
   def add_templates_to_group(templates, option = {})
     templates.each do |template|
       @group << template.template_struct(option)
-      next unless template.is_default == true
+  #    next unless template.is_default == true
       @default_template = default_template_index
     end
   end

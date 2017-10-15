@@ -214,6 +214,7 @@
               <td><%=h issue_template.tracker.name %></td>
               <td><%=h issue_template.author %></td>
               <td><%=h format_time(issue_template.updated_on)%> </td>
+              <td class="center"><%= checked_image issue_template.is_default? %></td>
             </tr>
             <tr class="<%= current_cycle %>" style="display: none;" id="global_template_description-<%= issue_template.id %>">
               <td class="description" colspan="8">

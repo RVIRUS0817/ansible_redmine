@@ -56,7 +56,7 @@ module Concerns
       end
 
       def checklist
-        return [] if checklist_json.blank?
+#        return [] if checklist_json.blank?
         begin
           JSON.parse(checklist_json)
         rescue
@@ -72,7 +72,7 @@ module Concerns
 
       def generate_json
         result = attributes
-        result[:checklist] = checklist
+#        result[:checklist] = checklist
         result.except('checklist_json')
       end
 
