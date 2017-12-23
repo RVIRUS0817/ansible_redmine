@@ -61,6 +61,17 @@ restart()
     start
 }
 
+status() {
+        if pgrep unicorn > /dev/null
+        then
+          echo -n $"unicorn is running: "
+        else
+          echo -n $"unicorn is not running: "
+        fi
+        RETVAL=$?
+        echo
+}
+
 case "$1" in
   start)
     start
@@ -77,8 +88,11 @@ case "$1" in
   restart)
     restart
     ;;
+  status)
+    status
+    ;;
   *)
-    echo "Syntax Error: release [start|stop|force-stop|reload|restart]"
+    echo "Syntax Error: release [start|stop|force-stop|reload|restart|status]"
     ;;
 esac
 
