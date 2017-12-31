@@ -1,7 +1,6 @@
 # ansible for redmine3.4.2  
 
-# Used  
-ansible of redmine
+ansible of redmine  
 https://blog.adachin.me/wordpress/archives/6306  
 
 # OS
