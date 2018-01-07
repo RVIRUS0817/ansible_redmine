@@ -1,5 +1,5 @@
 - hosts: redmine-web01
-  become: yes
+  become: true
   roles:
     - common
     - ruby
