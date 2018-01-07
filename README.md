@@ -3,11 +3,11 @@
 ansible of redmine  
 https://blog.adachin.me/wordpress/archives/6306  
 
-# OS
+## OS
 ・Amazon Linux   
 ・CentOS6  
 
-# Middleware  
+## Middleware  
 ・redmine v3.4.2  
 ・ruby v2.4.1  
 ・rails v4.2.0  
@@ -16,7 +16,7 @@ https://blog.adachin.me/wordpress/archives/6306
 ・H2O v2.2.4  
 ・mysql 5.7   
 
-※ DB is not provisioning  
+※# DB is not provisioning  
 
 # dry-run  
 ````
