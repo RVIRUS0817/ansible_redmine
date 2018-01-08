@@ -1,0 +1,42 @@
+- name: install packages
+  yum: name={{ item }} state=installed
+  with_items:
+    - telnet
+    - htop
+    - tree
+    - zsh
+    - git
+    - gcc
+    - cpp48
+    - gcc48
+    - glibc-devel
+    - glibc-headers
+    - kernel-headers
+    - libgomp
+    - libmpc
+    - mpfr
+    - wget 
+    - curl 
+    - openssl 
+    - openssl-devel 
+    - libxml2 
+    - libxml2-devel 
+    - libxslt 
+    - libxslt-devel 
+    - gcc-c++ 
+    - curl-devel 
+    - libffi-devel 
+    - ruby-devel 
+    - ImageMagick 
+    - ImageMagick-devel 
+    - apr-devel 
+    - apr-util-devel 
+    - readline 
+    - readline-devel 
+    - ruby-devel 
+    - libyaml-devel 
+    - zlib 
+    - zlib-devel
+
+
+

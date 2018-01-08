@@ -1,96 +1,11 @@
-- name: install packages
-  yum: name={{ item }} state=installed
-  with_items:
-    - telnet
-    - htop
-    - tree
-    - zsh
-    - git
-    - gcc
-    - cpp48
-    - gcc48
-    - glibc-devel
-    - glibc-headers
-    - kernel-headers
-    - libgomp
-    - libmpc
-    - mpfr
-    - wget 
-    - curl 
-    - openssl 
-    - openssl-devel 
-    - libxml2 
-    - libxml2-devel 
-    - libxslt 
-    - libxslt-devel 
-    - gcc-c++ 
-    - curl-devel 
-    - libffi-devel 
-    - ruby-devel 
-    - ImageMagick 
-    - ImageMagick-devel 
-    - apr-devel 
-    - apr-util-devel 
-    - readline 
-    - readline-devel 
-    - ruby-devel 
-    - libyaml-devel 
-    - zlib 
-    - zlib-devel
+- name: include tasks/base-packages.yml
+  include_tasks: tasks/base-packages.yml
 
+- name: include tasks/swap.yml
+  include_tasks: tasks/swap.yml
 
-- name: set timezone to Asia/Tokyo
-  timezone:
-    name: Asia/Tokyo
+- name: include tasks/hostname.yml
+  include_tasks: tasks/hostname.yml
 
-- name: /etc/rc.d/rc.local create swap
-  blockinfile:
-    dest: /etc/rc.d/rc.local
-    create: yes
-    block: |
-      dd if=/dev/zero of=/swapfile1 bs=1M count=2048
-      chmod 600 /swapfile1
-      mkswap /swapfile1
-      swapon /swapfile1
-
-- name: source rc.local root
-  become_user: root
-  shell: source /etc/rc.d/rc.local
-
-
-- name: change swappiness
-  sysctl:
-    name: vm.swappiness
-    value: 0
-    state: present
-
-- name: change hostname
-  hostname: name={{ inventory_hostname }}
-
-- name: create user 
-  user:
-    name: "{{ item.name }}"
-    createhome: yes
-    password: "{{ item.password | password_hash('sha512') }}"
-    shell: "{{ item.shell }}"
-    groups: nobody
-    state: "{{ item.state }}"
-    remove: "{{ item.remove }}"
-  with_items:
-  - { shell: '/bin/zsh', state: 'present', remove: 'no', name: 'redmine', password: 'redminepw' }
-
-
-- name: add sudoers 
-  lineinfile: 
-    path: /etc/sudoers
-    state: present
-    regexp: "{{ item.match }}"
-    line: "{{ item.line }}"
-  with_items:
-  - { match: 'redmine', line: 'redmine ALL=(ALL) NOPASSWD: ALL' }
-
-- name: authorized_key for user redmine
-  authorized_key:
-    user: redmine
-    key: "ssh-rsa xxxxxxxxxxxx"
-
+- name: include tasks/user.yml
+  include_tasks: tasks/user.yml
