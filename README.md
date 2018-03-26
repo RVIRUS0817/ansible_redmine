@@ -3,6 +3,8 @@
 ansible of redmine  
 https://blog.adachin.me/wordpress/archives/6306  
 
+![redmine-amazon-linux-ansible](https://user-images.githubusercontent.com/5633085/37887049-67601de2-30fa-11e8-8107-ebf5d27488ff.png)
+
 ## OS
 ・Amazon Linux   
 ・CentOS6  
