@@ -10,5 +10,4 @@
     - { src: unicorn }
 
 - name: start unicorn 
-  become: True
   service: name=unicorn enabled=yes state=started

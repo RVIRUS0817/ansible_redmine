@@ -1,14 +1,12 @@
 - hosts: all
-  become: true
   roles:
     - common
-    - ruby
-    - rails
 
 - hosts: redmine-web01
-  become: true
   roles:
     - h2o
     - mysql
+    - ruby
+    - rails
     - redmine3.4.2
     - unicorn
