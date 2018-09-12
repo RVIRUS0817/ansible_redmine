@@ -1,15 +1,15 @@
 - name: install bundler
-  become_user: root
-  shell: /usr/local/rbenv/shims/gem install bundler
+  shell: bash -lc "gem install bundler"
+  ignore_errors: yes
  
 - name: install nokogiri
-  become_user: root
-  shell: /usr/local/rbenv/shims/gem install nokogiri -- --use-system-libraries
+  shell: bash -lc "gem install nokogiri -- --use-system-libraries"
+  ignore_errors: yes
  
 - name: install rails
-  become_user: root
-  shell: /usr/local/rbenv/shims/gem install rails --version="4.2.0"
+  shell: bash -lc "gem install rails --version="4.2.0""
+  ignore_errors: yes
 
 - name: rehash
-  become_user: root
-  shell: /usr/local/rbenv/bin/rbenv rehash
+  shell: bash -lc "/usr/local/rbenv/bin/rbenv rehash"
+  ignore_errors: yes
